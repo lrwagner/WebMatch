@@ -4,6 +4,6 @@ from django.urls import path, include
 from app import views
 
 urlpatterns = [
-    path('', views.IndexView.as_view(), name='index'),
-    path('usercreation', views.UserCreationView.as_view(), name='usercreation')
+    path('', views.index_view, name='index'),
+    path('usercreation', views.UserCreationView.as_view(), name='usercreation'),
 ]
