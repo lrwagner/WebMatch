@@ -6,15 +6,19 @@
     <h1>Userliste</h1>
 </div>
 <div class="row">
+    {% if error %}
+    <h1>{{error}}</h1>
+    {% else %}
     <div class="col s4 offset-s4">
         <ul class="collection">
             <li class="collection-item avatar purple lighten-5">
                 <i class="material-icons circle white purple-text text-lighten-2">people</i>
                 <span class="title">{{ person.name }} {{ person.surname }}</span>
                 <p>{{ person.date_of_birth }}</p>
-                <p>{{ location }}</p>
+                <p>{{ location.longitude}} {{location.latitude }}</p>
             </li>
         </ul>
     </div>
+    {% endif %}
 </div>
 {% endblock content %}
