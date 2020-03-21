@@ -7,11 +7,13 @@ class Person(models.Model):
     surname = models.CharField(max_length=char_length, default=None)
     date_of_birth = models.DateField(default=None)
 
-    adress = models.CharField(max_length=char_length, default=None)
+    country = models.CharField(max_length=char_length, default=None)
+    city = models.CharField(max_length=char_length, default=None)
+    street = models.CharField(max_length=char_length, default=None)
     house_number = models.PositiveIntegerField(default=None)
     zip_code = models.PositiveIntegerField(default=None)
 
-    last_access = models.TimeField(default=None) # saves as in datetime.date instance
+    # last_access = models.TimeField(default=None) # saves as in datetime.date instance
 
 
 
