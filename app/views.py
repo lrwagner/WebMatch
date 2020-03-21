@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import TemplateView
 
 from app import models
 from app.geocoding import get_gps
@@ -17,3 +17,6 @@ def index_view(request):
     }
 
     return render(request, 'app/index.html', context)
+
+def UserCreationView(TemplateView):
+    template_url = 'app/usercreation.html'
