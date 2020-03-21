@@ -19,4 +19,4 @@ def index_view(request):
     return render(request, 'app/index.html', context)
 
 class UserCreationView(TemplateView):
-    template_url = 'app/usercreation.html'
+    template_name = 'app/usercreation.html'
