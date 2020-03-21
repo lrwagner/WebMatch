@@ -18,5 +18,5 @@ def index_view(request):
 
     return render(request, 'app/index.html', context)
 
-def UserCreationView(TemplateView):
+class UserCreationView(TemplateView):
     template_url = 'app/usercreation.html'
