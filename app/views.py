@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 
 from app import models
 from app.geocoding import get_gps
+from .forms import PersonForm
 # Create your views here.
 
 def index_view(request):
@@ -18,5 +19,14 @@ def index_view(request):
 
     return render(request, 'app/index.html', context)
 
-class UserCreationView(TemplateView):
-    template_name = 'app/usercreation.html'
+def user_creation_view(request):
+    form = PersonForm(request.POST or None)
+
+    if form.is_valid():
+        form.save()
+        form = PersonForm()
+    
+    context = {
+        'form': form,
+    }
+    return render(request, 'app/usercreation.html', context)
