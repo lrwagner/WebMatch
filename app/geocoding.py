@@ -12,6 +12,7 @@ def get_gps(address):
     results =  results.json()
 
     # if there's no results or an error, return empty results.
+    # TODO: Errormeldung bei falscher Adresseingabe
     if len(results['results']) == 0:    
         output = {
             "formatted_address" : None,
