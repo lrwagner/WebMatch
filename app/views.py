@@ -2,14 +2,18 @@ from django.shortcuts import render
 from django.views.generic import ListView
 
 from app import models
-
+from app.geocoding import get_gps
 # Create your views here.
-class IndexView(ListView):
-    template_name = 'app/index.html'
 
-    def get_queryset(self):
-        object_list = models.Person.objects.all()
-        return object_list
+def index_view(request):
 
-    
-    
+    person = models.Person.objects.all()[0]
+    addressGPS = person.street + str(person.house_number) + ',' + person.city + ',' + person.country
+    location  = get_gps(address=addressGPS)
+    location = str(location)
+    context = {
+        'person': person, 
+        'location': location,
+    }
+
+    return render(request, 'app/index.html', context)
