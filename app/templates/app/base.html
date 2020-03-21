@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static "app/css/materialize.min.css" %}"   media="screen,projection"/>
+
+</head>
+
+<body>
+<div class="navbar-fixed">
+  <nav class="blue pushpin z-depth-2">
+    <div class="nav-wrapper container">
+        <ul class="left hide-on-med-and-down grey-text text-darken-4">
+            <li><a href="{% url 'index' %}"><i class="material-icons grey-text text-darken-4">home</i></a></li>
+            <li>TEST</li>
+        </ul>
+    </div>
+  </nav>
+</div>
+{% block content %}
+{% endblock content %}
+
+<script type="text/javascript" src="{% static "app/js/materialize.min.js" %}"></script>
+{% block scripts_bottom %}
+{% endblock scripts_bottom %}
+</body>
+
+</html>
