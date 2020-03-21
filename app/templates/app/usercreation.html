@@ -1,0 +1,52 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container center">
+    <h1>User</h1>
+</div>
+<div class="container row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s4">
+          <input id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+        <div class="input-field col s4">
+          <input id="date_of_birth" type="date" class="validate">
+          <label for="data_of_birth">Date of Birth</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s5">
+          <input id="street" type="text" class="validate">
+          <label for="street">Street</label>
+        </div>
+        <div class="input-field col s1">
+          <input id="house_number" type="number" class="validate">
+          <label for="house_number">Number</label>
+        </div>
+        <div class="input-field col s5">
+          <input id="city" type="text" class="validate">
+          <label for="city">City</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+{% endblock content %}
