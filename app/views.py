@@ -1,21 +1,22 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
+from django.contrib.auth.models import User
 
 from app import models
+from app import forms
 from app.geocoding import get_gps
 
 # Create your views here.
 
 def index_view(request):
 
-    if not models.Person.objects.exists():
+    if not User.objects.exists():
            context = {
                'error': 'Error: Databank contains no user'
                }
     else:
-        persons = models.Person.objects.all()
         context = {
-            'persons': persons
+            'users': User.objects.all()
             }
 
     return render(request, 'app/index.html', context)
@@ -38,12 +39,12 @@ def adress_signup_view(request):
     return render(request, 'app/usercreation.html', context)
 
 def user_signup_view(request):
-    form = UserSignupForm(request.POST or None)
+    form = forms.UserSignupForm(request.POST or None)
 
     if form.is_valid():
 
         form.save()
-        form = UserSignupForm()
+        form = forms.UserSignupForm()
     
     context = {
         'form': form

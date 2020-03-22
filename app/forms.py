@@ -1,8 +1,6 @@
 from django import forms
 from django.contrib.auth import authenticate, get_user_model
-
-# enables usage of costum User models if defined
-User = get_user_model()
+from django.contrib.auth.models import User
 
 
 class UserLoginForm(forms.Form):
@@ -30,7 +28,7 @@ class UserSignupForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         # remove colon as label prefix in .html
         self.label_suffix = ""
-        self.fields['password'].widget.attrs.update(forms.PasswordInput)
+        # self.fields['password'].widget.attrs.update(forms.PasswordInput)
 
     class Meta:
         model = User
@@ -40,6 +38,3 @@ class UserSignupForm(forms.ModelForm):
             'first_name',
             'last_name',
         ]
-
-
-
