@@ -1,6 +1,14 @@
 import requests
 
 def get_gps(address):
+    """returns the latitude, longiture and more information of a given adress.
+    
+    Args:
+        address (str): street housenumber
+    
+    Returns:
+        dict: formatted_adress, latitude, longitude, accuracy, google_place_id, type, postcode
+    """
     # Set up your Geocoding url
     with open('api/apikey', 'r') as key:
         api_key = key.read()
