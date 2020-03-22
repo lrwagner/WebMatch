@@ -25,6 +25,7 @@ def user_creation_view(request):
 
     if form.is_valid():
         # TODO hier die Umwandlung der Adresse in GPS und abspeichern von GPS in eigenem Model (Location?)
+            # person durch form.cleaned_data ersetzten und mit z.B mit ['street'] zugreifen
             # addressGPS = person.street + str(person.house_number) + ',' + person.city + ',' + person.country
             # location  = get_gps(address=addressGPS)
             # location = str(location)
