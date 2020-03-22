@@ -22,10 +22,3 @@ class Location(models.Model):
 
 class TimeLogs(models.Model):
     last_access = models.TimeField(default=None) # saves as in datetime.date instance
-
-
-
-    
-
-
-# Create your models here.

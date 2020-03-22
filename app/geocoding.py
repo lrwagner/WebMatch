@@ -5,7 +5,7 @@ def get_gps(address):
     with open('api/apikey', 'r') as key:
         api_key = key.read()
     geocode_url = f"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={api_key}"
- 
+
     # Ping google for the reuslts:
     results = requests.get(geocode_url)
     # Results will be in JSON format - convert to dict using requests functionality
@@ -13,7 +13,7 @@ def get_gps(address):
 
     # if there's no results or an error, return empty results.
     # TODO: Errormeldung bei falscher Adresseingabe
-    if len(results['results']) == 0:    
+    if len(results['results']) == 0:
         output = {
             "formatted_address" : None,
             "latitude": None,
@@ -23,7 +23,7 @@ def get_gps(address):
             "type": None,
             "postcode": None
         }
-    else:    
+    else:
         answer = results['results'][0]
         output = {
             "formatted_address" : answer.get('formatted_address'),
