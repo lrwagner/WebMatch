@@ -13,13 +13,9 @@ def index_view(request):
                'error': 'Error: Databank contains no user'
                }
     else:
-        person = models.Person.objects.all()[0]
-        addressGPS = person.street + str(person.house_number) + ',' + person.city + ',' + person.country
-        location  = get_gps(address=addressGPS)
-        location = str(location)
+        persons = models.Person.objects.all()
         context = {
-            'person': person, 
-            'location': location,
+            'persons': persons
             }
 
     return render(request, 'app/index.html', context)
@@ -28,6 +24,10 @@ def user_creation_view(request):
     form = PersonForm(request.POST or None)
 
     if form.is_valid():
+        # TODO hier die Umwandlung der Adresse in GPS und abspeichern von GPS in eigenem Model (Location?)
+            # addressGPS = person.street + str(person.house_number) + ',' + person.city + ',' + person.country
+            # location  = get_gps(address=addressGPS)
+            # location = str(location)
         form.save()
         form = PersonForm()
     
