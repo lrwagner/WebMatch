@@ -4,7 +4,7 @@ CHAR_L = 255
 
 class Person(models.Model):
     
-    # TODO name als Primary Key, Form für User Creation, Passwort?
+    # TODO name/alternativ Username einführen als Primary Key, Form für User Creation, Passwort?
     name = models.CharField(max_length=CHAR_L, default=None)
     surname = models.CharField(max_length=CHAR_L, default=None)
     date_of_birth = models.DateField(default=None)
