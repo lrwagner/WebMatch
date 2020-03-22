@@ -18,7 +18,7 @@ class Person(models.Model):
     house_number = models.PositiveIntegerField(verbose_name='House Number', default=None)
     zip_code = models.PositiveIntegerField(verbose_name='Zip Code', default=None)
   
-     def save(self, *args, **kwargs):
+    def save(self, *args, **kwargs):
         super(Person, self).save(*args, **kwargs)
         if self.pk is None:
             location = Location()
