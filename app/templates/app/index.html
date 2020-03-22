@@ -11,12 +11,13 @@
     {% else %}
     <div class="col s4 offset-s4">
         <ul class="collection">
+        {% for person in persons %}
             <li class="collection-item avatar purple lighten-5">
                 <i class="material-icons circle white purple-text text-lighten-2">people</i>
                 <span class="title">{{ person.name }} {{ person.surname }}</span>
                 <p>{{ person.date_of_birth }}</p>
-                <p>{{ location.longitude}} {{location.latitude }}</p>
             </li>
+        {% endfor %}
         </ul>
     </div>
     {% endif %}
