@@ -40,8 +40,20 @@ class UserLoginForm(forms.Form):
 
 class UserSignupForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # remove colon as label prefix in .html
+        self.label_suffix = ""
+        self.fields['password']
+
     class Meta:
-        model = Person
+        model = User
+        fields = [
+            'username',
+            'password',
+            'first_name',
+            'last_name',
+        ]
 
 
 

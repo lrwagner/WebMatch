@@ -1,0 +1,23 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container center">
+    <h1>User</h1>
+</div>
+
+<div class="container row">
+    <form method="POST">{% csrf_token %}
+      {% for field in form %}
+        <div class="input-field col s12">
+            {{ field.errors }}
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+        </div>
+      {% endfor %}
+      <input type="submit" value="save" class="validate">
+    </form>
+</div>
+{% endblock content %}
