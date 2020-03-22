@@ -3,7 +3,10 @@
 
 {% block content %}
 <div class="container center">
-    <h1>Userliste</h1>
+    <h1 class="purple-text text-darken-2">Userliste</h1>
+</div>
+<div class="container center">
+    <a href="{% url 'usercreation' %}" class="btn-large grey darken-2">Create User</a>
 </div>
 <div class="row">
     {% if error %}
